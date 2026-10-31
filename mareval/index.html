@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mareval · Calibre M-01</title>
+<meta name="description" content="Mareval Calibre M-01: reloj automático de 39 mm ensamblado a mano. Marca ficticia creada como proyecto de portfolio.">
+<link rel="preload" href="../assets/fonts/bodoni-moda-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="mareval.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="wordmark" href="#inicio" aria-label="Mareval, inicio">Mareval</a>
+  <nav aria-label="Secciones">
+    <a href="#taller">Taller</a>
+    <a href="#ficha">Ficha técnica</a>
+    <a href="#cita">Pedir cita</a>
+  </nav>
+</header>
+
+<main id="inicio">
+
+  <section class="hero" aria-labelledby="hero-t">
+    <div class="hero-copy">
+      <h1 id="hero-t">Calibre M-01</h1>
+      <p class="lede">Un automático de 39&nbsp;mm, montado a mano pieza a pieza en nuestro taller. Setenta horas de reserva de marcha y ni un solo adorno que no haga falta.</p>
+      <p class="price">6.400&nbsp;€</p>
+      <p class="note">Entrega en doce semanas, con tu nombre grabado en la tapa si lo quieres.</p>
+      <a class="cta" href="#cita">Pedir cita en el taller</a>
+    </div>
+
+    <figure class="hero-watch">
+      <div class="dial-wrap">
+        <svg id="dial" viewBox="-14 -96 428 592" role="img" aria-labelledby="dial-t">
+          <title id="dial-t">Mareval Calibre M-01 marcando la hora actual</title>
+          <defs>
+            <radialGradient id="g-case" cx="38%" cy="30%" r="75%">
+              <stop offset="0" stop-color="#F3EEE4"/>
+              <stop offset=".45" stop-color="#C9B488"/>
+              <stop offset="1" stop-color="#7E6A45"/>
+            </radialGradient>
+            <radialGradient id="g-dial" cx="45%" cy="38%" r="70%">
+              <stop offset="0" style="stop-color: var(--dial-hi)"/>
+              <stop offset="1" style="stop-color: var(--dial)"/>
+            </radialGradient>
+            <linearGradient id="g-hand" x1="0" x2="1">
+              <stop offset="0" stop-color="#8C7449"/>
+              <stop offset=".5" stop-color="#F1E6CF"/>
+              <stop offset="1" stop-color="#A88E5E"/>
+            </linearGradient>
+            <linearGradient id="g-strap" x1="0" x2="1">
+              <stop offset="0" stop-color="#1B140E"/><stop offset=".5" stop-color="#3A2B1E"/><stop offset="1" stop-color="#1B140E"/>
+            </linearGradient>
+            <linearGradient id="g-fade-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#fff"/></linearGradient>
+            <linearGradient id="g-fade-bot" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#fff"/></linearGradient>
+            <mask id="m-strap-top"><rect x="0" y="-96" width="400" height="140" fill="url(#g-fade-top)"/></mask>
+            <mask id="m-strap-bot"><rect x="0" y="356" width="400" height="140" fill="url(#g-fade-bot)"/></mask>
+            <linearGradient id="g-crown" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#EDE3CC"/><stop offset=".5" stop-color="#A88E5E"/><stop offset="1" stop-color="#6E5B38"/>
+            </linearGradient>
+            <filter id="f-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#000" flood-opacity=".35"/>
+            </filter>
+          </defs>
+          <g class="strap">
+            <rect x="104" y="-96" width="192" height="150" rx="6" fill="url(#g-strap)" mask="url(#m-strap-top)"/>
+            <rect x="104" y="346" width="192" height="150" rx="6" fill="url(#g-strap)" mask="url(#m-strap-bot)"/>
+            <path d="M118 -40 V40 M282 -40 V40 M118 360 V440 M282 360 V440" stroke="#7A6448" stroke-width="1.2" stroke-dasharray="5 4" opacity=".7" mask="url(#m-strap-top)"/>
+            <path d="M118 360 V440 M282 360 V440" stroke="#7A6448" stroke-width="1.2" stroke-dasharray="5 4" opacity=".7" mask="url(#m-strap-bot)"/>
+          </g>
+          <g class="lugs" fill="url(#g-case)">
+            <path d="M92 70 L112 6 L148 6 L150 40 Z"/><path d="M308 70 L288 6 L252 6 L250 40 Z"/>
+            <path d="M92 330 L112 394 L148 394 L150 360 Z"/><path d="M308 330 L288 394 L252 394 L250 360 Z"/>
+          </g>
+          <rect x="392" y="184" width="20" height="32" rx="4" fill="url(#g-crown)"/>
+          <path d="M396 186 V214 M400 186 V214 M404 186 V214 M408 186 V214" stroke="#6E5B38" stroke-width="1" opacity=".6"/>
+          <circle cx="200" cy="200" r="196" fill="url(#g-case)"/>
+          <circle cx="200" cy="200" r="182" fill="#2B2416" opacity=".55"/>
+          <circle cx="200" cy="200" r="178" fill="url(#g-dial)"/>
+          <g id="ticks"></g>
+          <g id="indices"></g>
+          <text x="200" y="128" text-anchor="middle" class="dial-brand">Mareval</text>
+          <text x="200" y="292" text-anchor="middle" class="dial-small">Automático</text>
+          <g class="date">
+            <rect x="282" y="189" width="34" height="22" rx="2" style="fill: var(--date-bg)"/>
+            <text id="date" x="299" y="205" text-anchor="middle">1</text>
+          </g>
+          <g id="h-hour" filter="url(#f-shadow)"><path d="M200 214 L193 200 L200 106 L207 200 Z" fill="url(#g-hand)"/></g>
+          <g id="h-min" filter="url(#f-shadow)"><path d="M200 220 L195 200 L200 54 L205 200 Z" fill="url(#g-hand)"/></g>
+          <g id="h-sec"><rect x="199.2" y="44" width="1.6" height="190" fill="#B89B66"/><circle cx="200" cy="222" r="5" fill="#B89B66"/></g>
+          <circle cx="200" cy="200" r="6" fill="#E5D7B8"/><circle cx="200" cy="200" r="2" fill="#6E5B38"/>
+        </svg>
+      </div>
+      <figcaption id="now">Marca tu hora local.</figcaption>
+      <fieldset class="dials" aria-label="Color de la esfera">
+        <legend>Esfera</legend>
+        <label><input type="radio" name="dial" value="noche" checked><span class="sw sw-noche"></span>Noche</label>
+        <label><input type="radio" name="dial" value="pizarra"><span class="sw sw-pizarra"></span>Pizarra</label>
+        <label><input type="radio" name="dial" value="esmalte"><span class="sw sw-esmalte"></span>Esmalte</label>
+      </fieldset>
+    </figure>
+  </section>
+
+  <section class="taller" id="taller" aria-labelledby="taller-t">
+    <figure class="taller-photo">
+      <img src="https://images.unsplash.com/photo-1649803091689-0e65c4e9581f?w=1800&q=80&auto=format&fit=crop" alt="Manos de un relojero colocando una pieza en el movimiento con un destornillador fino" loading="lazy" width="1800" height="1200">
+    </figure>
+    <div class="taller-copy">
+      <h2 id="taller-t">Sesenta y dos horas en una sola mesa</h2>
+      <p>Cada M-01 lo monta de principio a fin la misma persona. Decora los puentes, ajusta el volante y firma la tapa por dentro. Si un día vuelve al taller, vuelve a sus manos.</p>
+      <p>No hay cadena de montaje. Hacemos unas cuarenta piezas al año y preferimos que sigan siendo cuarenta.</p>
+    </div>
+  </section>
+
+  <section class="macro" aria-label="El movimiento">
+    <figure class="m1">
+      <img src="https://images.unsplash.com/photo-1633451238042-85d93d267866?w=1400&q=80&auto=format&fit=crop" alt="Primer plano del volante y los rubíes de un movimiento mecánico" loading="lazy" width="1400" height="930">
+      <figcaption>El volante oscila 28.800 veces por hora. Lo regulamos en cinco posiciones antes de cerrar la caja.</figcaption>
+    </figure>
+    <figure class="m2">
+      <img src="https://images.unsplash.com/photo-1646724810360-abfa1bb76d6d?w=1000&q=80&auto=format&fit=crop" alt="Engranajes de acero pulido de un movimiento de reloj" loading="lazy" width="1000" height="900">
+      <figcaption>Ruedas y puentes acabados a mano, visibles a través del fondo de zafiro.</figcaption>
+    </figure>
+  </section>
+
+  <section class="ficha" id="ficha" aria-labelledby="ficha-t">
+    <h2 id="ficha-t">Ficha técnica</h2>
+    <dl>
+      <div><dt>Caja</dt><dd>Acero 904L, 39&nbsp;mm de diámetro y 10,8&nbsp;mm de grosor</dd></div>
+      <div><dt>Movimiento</dt><dd>Calibre M-01, automático, 28.800 alternancias por hora</dd></div>
+      <div><dt>Reserva de marcha</dt><dd>70 horas</dd></div>
+      <div><dt>Funciones</dt><dd>Horas, minutos, segundero central y fecha</dd></div>
+      <div><dt>Cristal</dt><dd>Zafiro abombado con tratamiento antirreflejos por dentro</dd></div>
+      <div><dt>Hermeticidad</dt><dd>100 metros</dd></div>
+      <div><dt>Correa</dt><dd>Piel de becerro cosida a mano, hebilla desplegable de acero</dd></div>
+      <div><dt>Garantía</dt><dd>Cinco años y revisión gratuita al tercero</dd></div>
+    </dl>
+  </section>
+
+  <section class="pausa" aria-label="Fotografía">
+    <img src="https://images.unsplash.com/photo-1772736785235-19d1579acb0e?w=2200&q=80&auto=format&fit=crop" alt="Reloj de esfera oscura sobre madera, con la estela del movimiento" loading="lazy" width="2200" height="1200">
+    <p>Un reloj que se hereda no tiene que llamar la atención. Tiene que seguir en hora.</p>
+  </section>
+
+  <section class="cita" id="cita" aria-labelledby="cita-t">
+    <div>
+      <h2 id="cita-t">Pide una cita en el taller</h2>
+      <p>Te enseñamos el M-01 en mano y, si quieres, el banco donde se monta el tuyo. Respondemos en dos días laborables.</p>
+    </div>
+    <form id="form-cita" novalidate>
+      <label>Nombre<input name="nombre" autocomplete="name" required></label>
+      <label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label>
+      <label>Día que te viene bien<input name="dia" type="date" required></label>
+      <button type="submit">Pedir cita</button>
+      <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="pie">
+  <p>Mareval es una marca ficticia. Esta página es un proyecto de portfolio de <a href="../">Juan Gavira</a>: diseño y código propios, sin ninguna relación con marcas reales.</p>
+  <p>Fotografías de Unsplash: <a href="https://unsplash.com/es/fotos/un-hombre-sostiene-un-reloj-en-la-mano-fToJybgJ0NQ">taller</a>, <a href="https://unsplash.com/es/fotos/un-primer-plano-de-una-esfera-de-reloj-con-los-engranajes-perdidos-3dyDozzCORw">volante</a>, <a href="https://unsplash.com/es/fotos/una-vista-de-cerca-de-un-movimiento-de-reloj-HmIwomthlWw">engranajes</a>, <a href="https://unsplash.com/es/fotos/un-reloj-con-desenfoque-de-movimiento-sobre-una-superficie-oscura-D8WPGuTbllA">reloj en movimiento</a>. El reloj de la portada está dibujado en SVG.</p>
+</footer>
+
+<script src="mareval.js"></script>
+</body>
+</html>

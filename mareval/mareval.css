@@ -1,0 +1,134 @@
+/* Mareval · Calibre M-01 — marca ficticia */
+@font-face { font-family: "Bodoni Moda"; src: url("../assets/fonts/bodoni-moda-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Bodoni Moda"; src: url("../assets/fonts/bodoni-moda-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Bodoni Moda"; src: url("../assets/fonts/bodoni-moda-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Hanken Grotesk"; src: url("../assets/fonts/hanken-grotesk-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  /* paleta */
+  --niebla: #E9ECEE;      /* fondo: gris frío, como el acero satinado */
+  --medianoche: #101C2A;  /* esfera y secciones oscuras */
+  --champan: #B89B66;     /* índices, agujas, detalles */
+  --grafito: #4A535C;     /* texto secundario */
+  --esmalte: #F8F9FA;     /* superficies claras */
+  --tinta: #141A21;       /* texto principal */
+
+  /* esfera (cambia con el selector) */
+  --dial: #101C2A; --dial-hi: #23364B; --index: #D9C49A; --dial-text: #CDB98F; --date-bg: #F2EEE6; --date-fg: #1B2430;
+
+  --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --pad: clamp(20px, 5vw, 72px);
+  --max: 1320px;
+}
+[data-dial="pizarra"] { --dial: #3B4248; --dial-hi: #5D666E; --index: #E8EBEE; --dial-text: #D6DADD; }
+[data-dial="esmalte"] { --dial: #EDEAE3; --dial-hi: #FBFAF7; --index: #1D2733; --dial-text: #3A4450; --date-bg: #FFFFFF; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--niebla); color: var(--tinta); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--champan); outline-offset: 3px; }
+h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; margin: 0; }
+
+/* ---- barra */
+.bar { position: sticky; top: 0; z-index: 10; display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+  padding: 18px var(--pad); background: color-mix(in srgb, var(--niebla) 88%, transparent); backdrop-filter: blur(10px); }
+.wordmark { font: 400 26px/1 var(--serif); letter-spacing: 0.06em; text-decoration: none; }
+.bar nav { display: flex; gap: clamp(14px, 3vw, 36px); font-size: 15px; }
+.bar nav a { text-decoration: none; color: var(--grafito); }
+.bar nav a:hover { color: var(--tinta); }
+
+/* ---- portada */
+.hero { max-width: var(--max); margin: 0 auto; min-height: calc(100svh - 64px); padding: clamp(24px, 4vw, 48px) var(--pad) 56px;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(24px, 5vw, 80px); }
+.hero h1 { font-size: clamp(54px, 8.4vw, 132px); line-height: 0.92; letter-spacing: -0.025em; }
+.lede { max-width: 34ch; margin: 28px 0 0; font-size: clamp(17px, 1.4vw, 19px); color: var(--grafito); }
+.price { margin: 32px 0 0; font: 400 30px/1 var(--serif); }
+.note { margin: 8px 0 0; font-size: 14px; color: var(--grafito); max-width: 36ch; }
+.cta { display: inline-block; margin-top: 30px; padding: 15px 26px; background: var(--medianoche); color: var(--esmalte); text-decoration: none; font-size: 15px; letter-spacing: 0.01em; border-radius: 2px; }
+.cta:hover { background: #1C2D41; }
+
+.hero-watch { margin: 0; display: grid; justify-items: center; gap: 18px; }
+.dial-wrap { height: min(76svh, 760px); max-width: 100%; aspect-ratio: 428 / 592; filter: drop-shadow(0 30px 40px rgba(16, 28, 42, 0.28)) drop-shadow(0 6px 10px rgba(16, 28, 42, 0.18)); }
+#dial { width: 100%; height: 100%; display: block; }
+#dial circle[fill="url(#g-dial)"] { transition: fill 400ms ease; }
+.tick { stroke: var(--dial-text); stroke-width: 1; opacity: .55; }
+.idx { fill: var(--index); }
+.dial-brand { font: 400 22px var(--serif); letter-spacing: 0.08em; fill: var(--dial-text); }
+.dial-small { font: 500 9.5px var(--sans); letter-spacing: 0.22em; fill: var(--dial-text); opacity: .8; }
+.date text { font: 600 13px var(--sans); fill: var(--date-fg); }
+#now { font-size: 14px; color: var(--grafito); font-variant-numeric: tabular-nums; }
+
+.dials { border: 0; margin: 0; padding: 0; display: flex; gap: 22px; align-items: center; }
+.dials legend { float: left; margin-right: 6px; font-size: 14px; color: var(--grafito); }
+.dials label { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+.dials input { position: absolute; opacity: 0; pointer-events: none; }
+.sw { width: 18px; height: 18px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.2); }
+.sw-noche { background: #101C2A; } .sw-pizarra { background: #4A5259; } .sw-esmalte { background: #F3F1EC; }
+.dials input:checked + .sw { box-shadow: 0 0 0 2px var(--niebla), 0 0 0 3px var(--tinta); }
+.dials input:focus-visible + .sw { outline: 2px solid var(--champan); outline-offset: 4px; }
+
+/* ---- taller */
+.taller { background: var(--medianoche); color: var(--esmalte); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; }
+.taller-photo { margin: 0; height: 100%; min-height: 520px; }
+.taller-photo img { width: 100%; height: 100%; object-fit: cover; }
+.taller-copy { padding: clamp(40px, 6vw, 96px) var(--pad) clamp(40px, 6vw, 96px) clamp(32px, 5vw, 72px); }
+.taller h2 { font-size: clamp(34px, 4.2vw, 60px); line-height: 1.04; max-width: 13ch; }
+.taller p { color: #C3CBD3; max-width: 40ch; }
+.taller h2 + p { margin-top: 28px; }
+
+/* ---- macro */
+.macro { max-width: var(--max); margin: 0 auto; padding: clamp(64px, 9vw, 140px) var(--pad); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(20px, 4vw, 56px); align-items: start; }
+.macro figure { margin: 0; }
+.macro .m2 { margin-top: clamp(60px, 12vw, 180px); }
+.macro img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: #CBD1D6; }
+.macro .m2 img { aspect-ratio: 4 / 5; }
+.macro figcaption { margin-top: 14px; font-size: 15px; color: var(--grafito); max-width: 42ch; }
+
+/* ---- ficha */
+.ficha { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) clamp(64px, 9vw, 140px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 5vw, 80px); }
+.ficha h2 { font-size: clamp(34px, 4.2vw, 60px); line-height: 1; }
+.ficha dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(24px, 4vw, 56px); }
+.ficha dl div { padding: 18px 0 20px; border-top: 1px solid #C7CDD2; }
+.ficha dt { font-size: 14px; color: var(--grafito); }
+.ficha dd { margin: 4px 0 0; font: 400 20px/1.35 var(--serif); }
+
+/* ---- pausa */
+.pausa { position: relative; background: var(--medianoche); }
+.pausa img { width: 100%; height: min(78svh, 760px); object-fit: cover; opacity: .9; }
+.pausa p { position: absolute; left: var(--pad); bottom: clamp(28px, 6vw, 80px); margin: 0; max-width: 20ch; color: var(--esmalte);
+  font: italic 400 clamp(28px, 3.6vw, 52px)/1.12 var(--serif); text-shadow: 0 2px 24px rgba(0,0,0,.45); }
+
+/* ---- cita */
+.cita { max-width: var(--max); margin: 0 auto; padding: clamp(64px, 9vw, 140px) var(--pad); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 6vw, 96px); }
+.cita h2 { font-size: clamp(34px, 4.2vw, 60px); line-height: 1.04; max-width: 12ch; }
+.cita h2 + p { color: var(--grafito); max-width: 38ch; margin-top: 22px; }
+form { display: grid; gap: 18px; align-content: start; }
+form label { display: grid; gap: 6px; font-size: 14px; color: var(--grafito); }
+form input { font: inherit; color: var(--tinta); padding: 12px 0; border: 0; border-bottom: 1px solid #9AA3AB; background: transparent; border-radius: 0; }
+form input:focus { outline: none; border-bottom-color: var(--tinta); }
+form input:focus-visible { outline: 2px solid var(--champan); outline-offset: 2px; }
+form button { justify-self: start; margin-top: 8px; padding: 15px 26px; font: inherit; font-size: 15px; background: var(--medianoche); color: var(--esmalte); border: 0; border-radius: 2px; cursor: pointer; }
+form button:hover { background: #1C2D41; }
+.form-msg { margin: 0; min-height: 1.6em; font-size: 15px; }
+.form-msg.bad { color: #9B2C2C; } .form-msg.ok { color: #2F5D3A; }
+
+/* ---- pie */
+.pie { border-top: 1px solid #C7CDD2; max-width: var(--max); margin: 0 auto; padding: 28px var(--pad) 40px; font-size: 13.5px; color: var(--grafito); }
+.pie p { max-width: 90ch; margin: 0 0 8px; }
+
+/* ---- móvil */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .hero-watch { order: -1; }
+  .dial-wrap { height: auto; width: min(80%, 360px); }
+  .taller { grid-template-columns: 1fr; }
+  .taller-photo { min-height: 320px; }
+  .macro, .ficha, .cita { grid-template-columns: 1fr; }
+  .macro .m2 { margin-top: 0; }
+  .ficha dl { grid-template-columns: 1fr; }
+  .bar nav a:not(:last-child) { display: none; }
+}

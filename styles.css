@@ -1,0 +1,83 @@
+/* Portfolio de Juan Gavira */
+@font-face { font-family: "Hanken Grotesk"; src: url("assets/fonts/hanken-grotesk-latin-wght-normal.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  --papel: #F5F6F7;
+  --tinta: #16191D;
+  --medio: #5B636B;
+  --linea: #D7DBDF;
+  --cobalto: #2443B6;
+  --pad: clamp(20px, 5vw, 72px);
+  --max: 1280px;
+  --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--papel); color: var(--tinta); font: 400 18px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--cobalto); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--cobalto); outline-offset: 3px; }
+h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -0.02em; }
+
+.top, main > section, .foot { max-width: var(--max); margin-inline: auto; padding-inline: var(--pad); }
+
+/* ---- cabecera */
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding-top: 26px; padding-bottom: 26px; }
+.name { color: var(--tinta); text-decoration: none; font-weight: 650; letter-spacing: -0.01em; }
+.top nav { display: flex; gap: clamp(14px, 3vw, 32px); font-size: 16px; }
+.top nav a { color: var(--medio); text-decoration: none; }
+.top nav a:hover { color: var(--tinta); }
+
+/* ---- presentación */
+.intro { padding-top: clamp(48px, 10vw, 150px); padding-bottom: clamp(64px, 10vw, 150px); display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(28px, 5vw, 72px); align-items: end; }
+.intro h1 { font-size: clamp(44px, 7.4vw, 108px); line-height: 0.98; letter-spacing: -0.04em; font-weight: 640; max-width: 12ch; }
+.intro-side p { margin: 0 0 14px; color: var(--medio); max-width: 38ch; }
+.intro-side p:last-child { color: var(--tinta); }
+
+/* ---- proyectos */
+.projects { border-top: 1px solid var(--linea); padding-top: 28px; }
+.projects > h2, .method > h2, .path > h2 { font-size: 16px; font-weight: 600; letter-spacing: 0; color: var(--medio); margin-bottom: clamp(32px, 5vw, 56px); }
+.project { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); align-items: start; padding-bottom: clamp(64px, 9vw, 128px); }
+.shot { display: block; border-radius: 6px; overflow: hidden; background: #E4E7EA; box-shadow: 0 1px 0 rgba(22, 25, 29, 0.06), 0 24px 48px -28px rgba(22, 25, 29, 0.45); }
+.shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; transition: transform 600ms cubic-bezier(.2, 0, 0, 1); }
+.shot:hover img { transform: scale(1.015); }
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none; } .shot:hover img { transform: none; } }
+.info h3 { font-size: clamp(32px, 3.6vw, 48px); line-height: 1; letter-spacing: -0.03em; }
+.info .what { margin: 12px 0 18px; font-size: 20px; line-height: 1.4; color: var(--tinta); }
+.info p { color: var(--medio); max-width: 46ch; margin: 0 0 16px; }
+.info .stack { font-size: 15px; color: var(--tinta); }
+.links { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 4px; font-weight: 550; }
+
+/* ---- método */
+.method { border-top: 1px solid var(--linea); padding-top: 28px; padding-bottom: clamp(64px, 9vw, 128px); }
+.method-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); }
+.method-grid h3 { font-size: 24px; margin-bottom: 10px; }
+.method-grid p { margin: 0; color: var(--medio); max-width: 34ch; }
+
+/* ---- trayectoria (en orden) */
+.path { border-top: 1px solid var(--linea); padding-top: 28px; padding-bottom: clamp(64px, 9vw, 128px); }
+.path ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); counter-reset: paso; }
+.path li { position: relative; padding-top: 22px; border-top: 2px solid var(--tinta); }
+.path li:last-child { border-top-color: var(--cobalto); }
+.path h3 { font-size: 22px; line-height: 1.2; margin-bottom: 10px; max-width: 18ch; }
+.path h3 span { display: block; margin-top: 6px; font-size: 16px; font-weight: 500; color: var(--medio); letter-spacing: 0; }
+.path p { margin: 0; color: var(--medio); max-width: 34ch; }
+
+/* ---- contacto */
+.contact { border-top: 1px solid var(--linea); padding-top: clamp(48px, 8vw, 110px); padding-bottom: clamp(48px, 8vw, 110px); }
+.contact h2 { font-size: clamp(44px, 7.4vw, 108px); line-height: 1; letter-spacing: -0.04em; }
+.contact > p { color: var(--medio); margin: 20px 0 0; }
+.contact > .contact-links { display: flex; gap: clamp(24px, 4vw, 48px); flex-wrap: wrap; margin-top: 24px; font-size: clamp(24px, 2.6vw, 34px); font-weight: 600; letter-spacing: -0.02em; }
+
+.foot { padding-top: 24px; padding-bottom: 40px; border-top: 1px solid var(--linea); font-size: 14px; color: var(--medio); }
+.foot p { margin: 0; }
+
+/* ---- móvil */
+@media (max-width: 860px) {
+  .intro, .project { grid-template-columns: 1fr; }
+  .intro { align-items: start; }
+  .method-grid, .path ol { grid-template-columns: 1fr; }
+  .top nav a:not(:last-child) { display: none; }
+}
