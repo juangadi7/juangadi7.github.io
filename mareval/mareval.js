@@ -179,7 +179,9 @@
       <text style="font:500 11px var(--sans);letter-spacing:.3em;fill:#4A535C"><textPath href="#arco" startOffset="50%" text-anchor="middle">Nº 0042 · ZAFIRO · 100 M</textPath></text>`, acero('fo'))
   ]
   // se pintan del fondo al cristal: así, con el reloj montado, queda delante lo que se ve delante
-  stage.innerHTML = capas.map((c, i) => `<div class="capa" data-i="${i}">${c}</div>`).reverse().join('')
+  // las piezas macizas llevan canto: una copia más oscura un poco por detrás
+  const MACIZAS = new Set([2, 3, 4, 5, 6])
+  stage.innerHTML = capas.map((c, i) => `<div class="capa" data-i="${i}">${MACIZAS.has(i) ? `<div class="canto">${c}</div><div class="canto c2">${c}</div>` : ''}${c}</div>`).reverse().join('')
   const nodos = [...stage.children].sort((a, b) => a.dataset.i - b.dataset.i)
   const N = nodos.length
 
